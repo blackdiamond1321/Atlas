@@ -28,6 +28,8 @@ public class Main {
             System.out.printf("[%s] -> %-10s | Cost: £%7.2f%n", s.getType(), s.getName(), cost);
         });
 
+        // Test GitHub actions connection
+
         log.info("Analysis complete. All billing calculated via Strategy delegates.");
     }
 }
