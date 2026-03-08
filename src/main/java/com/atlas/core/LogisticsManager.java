@@ -40,4 +40,17 @@ public class LogisticsManager {
                 .sum();
         return totalWeight;
     }
+
+        /**
+        * MLO8: Use of Streams to filter and aggregate data.
+        * Get a list of unique destination cities sorted alphabetically.
+        */
+    public List<String> getUniqueDestinationsSorted() {
+        List<String> destinations = masterShipmentList.stream()
+                .map(s -> s.getDestination())
+                .distinct()
+                .sorted()
+                .toList();
+        return destinations;
+    }
 }

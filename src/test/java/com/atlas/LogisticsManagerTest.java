@@ -58,16 +58,16 @@ public class LogisticsManagerTest {
         // From setup: Alpha(10) + Gamma(2) = 12
         assertEquals(12.0, manager.getTotalWeightForDestination("London"), 0.001);
     }
-//
-//    @Test
-//    @Order(5)
-//    void testStreamUniqueCitiesSorting() {
-//        List<String> cities = manager.getUniqueDestinationsSorted();
-//        assertEquals(2, cities.size());
-//        assertEquals("London", cities.get(0));
-//        assertEquals("Manchester", cities.get(1));
-//    }
-//
+
+    @Test
+    @Order(5)
+    void testStreamUniqueCitiesSorting() {
+        List<String> cities = manager.getUniqueDestinationsSorted();
+        assertEquals(2, cities.size());
+        assertEquals("London", cities.get(0));
+        assertEquals("Manchester", cities.get(1));
+    }
+
 //    @Test
 //    @Order(6)
 //    void testStreamHighValueShipments() {
