@@ -22,25 +22,25 @@ public class LogisticsManagerTest {
         manager.addShipment(new Shipment("Gamma", 2.0, 10.0, "London", "Fragile"));
     }
 
-//    // --- CATEGORY 1: STRATEGY PATTERN MATH (MLO5) ---
-//
-//    @Test
-//    @Order(1)
-//    void testStandardCostCalculation() {
-//        Shipment s = new Shipment("Test", 20.0, 200.0, "Leeds", "Standard");
-//        // (20*0.5) + (200*0.1) = 30.0
-//        assertEquals(30.0, manager.calculateSingleCost(s), 0.001);
-//    }
-//
-//    @Test
-//    @Order(2)
-//    void testExpressCostWithProcessingFee() {
-//        Shipment s = new Shipment("Test", 10.0, 100.0, "Leeds", "Express");
-//        // Base: (10*0.5) + (100*0.1) = 15.0
-//        // Strategy: 15.0 * 1.75 = 26.25
-//        // Fee: 26.25 + 5.0 = 31.25
-//        assertEquals(31.25, manager.calculateSingleCost(s), 0.001);
-//    }
+    // --- CATEGORY 1: STRATEGY PATTERN MATH (MLO5) ---
+
+    @Test
+    @Order(1)
+    void testStandardCostCalculation() {
+        Shipment s = new Shipment("Test", 20.0, 200.0, "Leeds", "Standard");
+        // (20*0.5) + (200*0.1) = 30.0
+        assertEquals(30.0, manager.calculateSingleCost(s), 0.001);
+    }
+
+    @Test
+    @Order(2)
+    void testExpressCostWithProcessingFee() {
+        Shipment s = new Shipment("Test", 10.0, 100.0, "Leeds", "Express");
+        // Base: (10*0.5) + (100*0.1) = 15.0
+        // Strategy: 15.0 * 1.75 = 26.25
+        // Fee: 26.25 + 5.0 = 31.25
+        assertEquals(31.25, manager.calculateSingleCost(s), 0.001);
+    }
 //
 //    @Test
 //    @Order(3)
