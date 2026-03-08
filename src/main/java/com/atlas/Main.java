@@ -35,7 +35,7 @@ public class Main {
 
         // Invoice Output
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-        int[] counter = {1};
+        int[] counter = {1}; //array used to modify the counter inside the lambda expression
 
         System.out.println("\n--- INVOICES ---");
         System.out.println("-".repeat(128));
