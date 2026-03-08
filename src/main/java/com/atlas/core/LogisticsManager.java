@@ -69,4 +69,16 @@ public class LogisticsManager {
                 .toList();
         return highValue;
     }
+
+    /**
+     * MLO8: Use of Streams to filter and aggregate data.
+     * @return The average cost of all shipments.
+     */
+    public double calculateAverageShippingCost() {
+        double average = masterShipmentList.stream()
+                .mapToDouble(s -> calculateSingleCost(s))
+                .average()
+                .orElse(0); // if list is empty, return 0
+        return average;
+    }
 }

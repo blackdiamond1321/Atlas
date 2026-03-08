@@ -78,14 +78,14 @@ public class LogisticsManagerTest {
         assertEquals("HeavyGold", highValue.get(0).getName());
     }
 
-//    @Test
-//    @Order(7)
-//    void testStreamAverageCost() {
-//        // Average of setup items (~30.0, ~14.37, ~21.4)
-//        double avg = manager.calculateAverageShippingCost();
-//        assertTrue(avg > 0);
-//    }
-//
+    @Test
+    @Order(7)
+    void testStreamAverageCost() {
+        // Average of setup items (~30.0, ~14.37, ~21.4)
+        double avg = manager.calculateAverageShippingCost();
+        assertTrue(avg > 0);
+    }
+
 //    // --- CATEGORY 4: VALIDATION & AMBIGUITY (MLO4) ---
 //
 //    @Test
