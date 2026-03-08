@@ -12,6 +12,16 @@ import com.atlas.models.Shipment;
 @FunctionalInterface
 public interface ShippingStrategy {
 
+        /**
+        * Method to calculate the base rate for a shipment
+        * @param shipment The shipment details (weight and distance)
+        * @return the base rate for the shipment
+        */
+
+    static double baseRate(Shipment shipment) {
+        return (shipment.getWeight() * 0.50) + (shipment.getDistance() * 0.10);
+    }
+
     /**
      * Calculates the cost for a given shipment.
      * @param shipment The shipment details (weight, distance, etc.)
