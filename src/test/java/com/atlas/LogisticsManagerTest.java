@@ -1,27 +1,27 @@
-//package com.atlas;
-//
-//import com.atlas.core.*;
-//import com.atlas.models.Shipment;
-//import com.atlas.strategies.*;
-//import org.junit.jupiter.api.*;
-//
-//import static org.junit.jupiter.api.Assertions.*;
-//
-//import java.util.List;
-//
-//@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-//public class LogisticsManagerTest {
-//    private LogisticsManager manager;
-//
-//    @BeforeEach
-//    void setUp() {
-//        manager = new LogisticsManager();
-//        // Base Setup: Name, Weight, Distance, City, Type
-//        manager.addShipment(new Shipment("Alpha", 10.0, 100.0, "London", "Standard"));
-//        manager.addShipment(new Shipment("Beta", 5.0, 50.0, "Manchester", "Express"));
-//        manager.addShipment(new Shipment("Gamma", 2.0, 10.0, "London", "Fragile"));
-//    }
-//
+package com.atlas;
+
+import com.atlas.core.*;
+import com.atlas.models.Shipment;
+import com.atlas.strategies.*;
+import org.junit.jupiter.api.*;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.List;
+
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+public class LogisticsManagerTest {
+    private LogisticsManager manager;
+
+    @BeforeEach
+    void setUp() {
+        manager = new LogisticsManager();
+        // Base Setup: Name, Weight, Distance, City, Type
+        manager.addShipment(new Shipment("Alpha", 10.0, 100.0, "London", "Standard"));
+        manager.addShipment(new Shipment("Beta", 5.0, 50.0, "Manchester", "Express"));
+        manager.addShipment(new Shipment("Gamma", 2.0, 10.0, "London", "Fragile"));
+    }
+
 //    // --- CATEGORY 1: STRATEGY PATTERN MATH (MLO5) ---
 //
 //    @Test
@@ -205,4 +205,4 @@
 //        assertEquals("London", cities.get(0));
 //        assertEquals("Manchester", cities.get(1));
 //    }
-//}
+}
