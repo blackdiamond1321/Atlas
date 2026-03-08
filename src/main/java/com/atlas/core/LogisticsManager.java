@@ -1,5 +1,6 @@
 package com.atlas.core;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -123,9 +124,26 @@ public class LogisticsManager {
                         s.getName(),
                         s.getType(),
                         s.getDestination(),
-                        calculateSingleCost(s)
+                        calculateSingleCost(s),
+                        LocalDateTime.now()
                 ))
                 .toList();
         return invoices;
+    }
+    /**
+     * MLO8: Use of Streams to filter and aggregate data.
+     * Calculate the total revenue generated from "Express" shipments in the last 30 days.
+     */
+
+
+    public double calculateExpressRevenueFor30Days() {
+        List<Invoice> invoices = generateInvoices();
+        //TODO: use streams to filter the invoices where type is "Express" and were generated in the last 30 days, then sum their total
+        double total = invoices.stream()
+                .filter(i -> i.getShipmentType().equalsIgnoreCase("Express"))
+                .filter(i -> i.getDateTime().isAfter(LocalDateTime.now().minusDays(30)))
+                .mapToDouble(i -> i.getTotalCost())
+                .sum();
+        return total;
     }
 }
