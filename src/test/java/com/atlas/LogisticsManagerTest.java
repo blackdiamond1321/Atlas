@@ -86,7 +86,7 @@ public class LogisticsManagerTest {
         assertTrue(avg > 0);
     }
 
-//    // --- CATEGORY 4: VALIDATION & AMBIGUITY (MLO4) ---
+    // --- CATEGORY 4: VALIDATION & AMBIGUITY (MLO4) ---
 //
 //    @Test
 //    @Order(10)
@@ -94,7 +94,7 @@ public class LogisticsManagerTest {
 //        Shipment bad = new Shipment("Void", -5.0, 100.0, "London", "Standard");
 //        assertThrows(IllegalArgumentException.class, () -> manager.processShipment(bad));
 //    }
-//
+
 //    @Test
 //    @Order(11)
 //    void testFragileWeightConstraint() {
