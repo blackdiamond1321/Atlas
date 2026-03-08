@@ -32,9 +32,11 @@ public class Main {
 
         // Invoice Output
         System.out.println("\n--- INVOICES ---");
+        System.out.println("-".repeat(102));
+        int[] counter = {1};
         manager.generateInvoices().forEach(i -> {
-            System.out.printf("Invoice: %-10s | Type: %-8s | Destination: %-10s | Cost: £%7.2f%n",
-            i.getShipmentName(), i.getShipmentType(), i.getDestination(), i.getTotalCost());
+            System.out.printf("| Invoice: #%-3d | Name: %-12s | Type: %-10s | Destination: %-12s | Cost: £%7.2f |%n", counter[0]++, i.getShipmentName(), i.getShipmentType(), i.getDestination(), i.getTotalCost());
+            System.out.println("-".repeat(102));
         });
 
         log.info("Analysis complete. All billing calculated via Strategy delegates.");
