@@ -68,16 +68,16 @@ public class LogisticsManagerTest {
         assertEquals("Manchester", cities.get(1));
     }
 
-//    @Test
-//    @Order(6)
-//    void testStreamHighValueShipments() {
-//        // Adding a very heavy/distant shipment to cross the £500 threshold
-//        manager.addShipment(new Shipment("HeavyGold", 1000.0, 5000.0, "Dubai", "Standard"));
-//        List<Shipment> highValue = manager.getHighValueShipments(500.0);
-//        assertEquals(1, highValue.size());
-//        assertEquals("HeavyGold", highValue.get(0).getName());
-//    }
-//
+    @Test
+    @Order(6)
+    void testStreamHighValueShipments() {
+        // Adding a very heavy/distant shipment to cross the £500 threshold
+        manager.addShipment(new Shipment("HeavyGold", 1000.0, 5000.0, "Dubai", "Standard"));
+        List<Shipment> highValue = manager.getHighValueShipments(500.0);
+        assertEquals(1, highValue.size());
+        assertEquals("HeavyGold", highValue.get(0).getName());
+    }
+
 //    @Test
 //    @Order(7)
 //    void testStreamAverageCost() {

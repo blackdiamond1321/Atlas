@@ -17,6 +17,11 @@ public class LogisticsManager {
         masterShipmentList.add(shipment);
     }
 
+    // Get the master shipment list.
+    public List<Shipment> getMasterShipmentList() {
+        return masterShipmentList;
+    }
+
     /**
       * method to calculate the cost of a single shipment using the Strategy pattern.
       * @param shipment The shipment for which the cost is to be calculated.
@@ -52,5 +57,16 @@ public class LogisticsManager {
                 .sorted()
                 .toList();
         return destinations;
+    }
+
+    /**
+     * MLO8: Use of Streams to filter and aggregate data.
+     * @return The list of high value shipment
+     */
+    public List<Shipment> getHighValueShipments(double threshold) {
+        List<Shipment> highValue = masterShipmentList.stream()
+                .filter(s -> calculateSingleCost(s) > threshold)
+                .toList();
+        return highValue;
     }
 }
