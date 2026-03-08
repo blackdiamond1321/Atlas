@@ -117,8 +117,8 @@ public class LogisticsManager {
      */
 
     public List<Invoice> generateInvoices() {
+        // TODO: use streams to transform each shipment into an invoice
         List<Invoice> invoices = masterShipmentList.stream()
-                // TODO: use streams to transform each shipment into an invoice
                 .map(s -> new Invoice(
                         s.getName(),
                         s.getType(),

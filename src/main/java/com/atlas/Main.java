@@ -30,6 +30,13 @@ public class Main {
 
         // Test GitHub actions connection
 
+        // Invoice Output
+        System.out.println("\n--- INVOICES ---");
+        manager.generateInvoices().forEach(i -> {
+            System.out.printf("Invoice: %-10s | Type: %-8s | Destination: %-10s | Cost: £%7.2f%n",
+            i.getShipmentName(), i.getShipmentType(), i.getDestination(), i.getTotalCost());
+        });
+
         log.info("Analysis complete. All billing calculated via Strategy delegates.");
     }
 }
