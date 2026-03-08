@@ -41,15 +41,15 @@ public class LogisticsManagerTest {
         // Fee: 26.25 + 5.0 = 31.25
         assertEquals(31.25, manager.calculateSingleCost(s), 0.001);
     }
-//
-//    @Test
-//    @Order(3)
-//    void testFragileCostUnderWeightLimit() {
-//        Shipment s = new Shipment("Test", 10.0, 100.0, "Leeds", "Fragile");
-//        // Base: 15.0. Strategy: (15.0 * 1.2) + 20.0 = 38.0
-//        assertEquals(38.0, manager.calculateSingleCost(s), 0.001);
-//    }
-//
+
+    @Test
+    @Order(3)
+    void testFragileCostUnderWeightLimit() {
+        Shipment s = new Shipment("Test", 10.0, 100.0, "Leeds", "Fragile");
+        // Base: 15.0. Strategy: (15.0 * 1.2) + 20.0 = 38.0
+        assertEquals(38.0, manager.calculateSingleCost(s), 0.001);
+    }
+
 //    // --- CATEGORY 2: JAVA STREAMS & ANALYTICS (MLO8) ---
 //
 //    @Test

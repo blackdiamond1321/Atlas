@@ -35,6 +35,6 @@ public interface ShippingStrategy {
      */
     default double addProcessingFee(double baseCost) {
         // the tests indicate what this method needs to return
-        return 0.0;
+        return baseCost + 5.0; // Test 2 shows that the processing fee is £5.0
     }
 }
