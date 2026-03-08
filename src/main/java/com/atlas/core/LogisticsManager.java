@@ -27,6 +27,14 @@ public class LogisticsManager {
 
     private final Validator<Shipment> safetyValidator = s -> !s.getType().equalsIgnoreCase("Fragile") || s.getWeight() <= FragileShipping.MAX_WEIGHT;
 
+    public void processShipment(Shipment shipment) {
+        if (weightValidator.and(destinationValidator).and(safetyValidator).test(shipment)) {
+            addShipment(shipment);
+        } else {
+            throw new IllegalArgumentException("Shipment failed");
+        }
+    }
+
     // Add a shipment to the master list.
     public void addShipment(Shipment shipment) {
         masterShipmentList.add(shipment);
