@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.atlas.interfaces.ShippingStrategy;
 import com.atlas.interfaces.Validator;
+import com.atlas.models.Invoice;
 import com.atlas.models.Shipment;
 import com.atlas.strategies.Factory;
 import com.atlas.strategies.FragileShipping;
@@ -28,6 +29,7 @@ public class LogisticsManager {
     private final Validator<Shipment> safetyValidator = s -> !s.getType().equalsIgnoreCase("Fragile") || s.getWeight() <= FragileShipping.MAX_WEIGHT;
 
     public void processShipment(Shipment shipment) {
+        //TODO: Validate the shipment using the defined rules. If any validation fails, throw an exception.
         if (weightValidator.and(destinationValidator).and(safetyValidator).test(shipment)) {
             addShipment(shipment);
         } else {
@@ -51,6 +53,7 @@ public class LogisticsManager {
       * @return The calculated cost for the given shipment.
      */
     public double calculateSingleCost(Shipment shipment) {
+        //TODO: use the Factory to get specific strategy based on the shipment type, then call calculateCost on that strategy
         ShippingStrategy strategy = Factory.getStrategy(shipment.getType());
         double cost = strategy.calculateCost(shipment);
         return cost;
@@ -74,6 +77,7 @@ public class LogisticsManager {
         * Get a list of unique destination cities sorted alphabetically.
         */
     public List<String> getUniqueDestinationsSorted() {
+        //TODO: use streams to extract the destination from each shipment, filter them, and sort them alphabetically
         List<String> destinations = masterShipmentList.stream()
                 .map(s -> s.getDestination())
                 .distinct()
@@ -87,6 +91,7 @@ public class LogisticsManager {
      * @return The list of high value shipment
      */
     public List<Shipment> getHighValueShipments(double threshold) {
+        //TODO: use streams to filter the list of shipments by cost, returning those that exceed the specified amount
         List<Shipment> highValue = masterShipmentList.stream()
                 .filter(s -> calculateSingleCost(s) > threshold)
                 .toList();
@@ -98,10 +103,29 @@ public class LogisticsManager {
      * @return The average cost of all shipments.
      */
     public double calculateAverageShippingCost() {
+        //TODO: use streams to calculate the average cost of all shipments.
         double average = masterShipmentList.stream()
                 .mapToDouble(s -> calculateSingleCost(s))
-                .average()
+                .average()// calculate the average of the costs
                 .orElse(0); // if list is empty, return 0
         return average;
+    }
+
+    /**
+     * MLO8: Use of Streams to filter and aggregate data.
+     * Transform all shipments into an invoice.
+     */
+
+    public List<Invoice> generateInvoices() {
+        List<Invoice> invoices = masterShipmentList.stream()
+                // TODO: use streams to transform each shipment into an invoice
+                .map(s -> new Invoice(
+                        s.getName(),
+                        s.getType(),
+                        s.getDestination(),
+                        calculateSingleCost(s)
+                ))
+                .toList();
+        return invoices;
     }
 }
