@@ -12,11 +12,11 @@ public class Main {
 
         log.info("System initialized using Interface-Driven Strategy architecture.");
 
-//        // Sample Data Entry
-//        manager.addShipment(new Shipment("Medical Kit", 5.0, 200.0, "London", "Express"));
-//        manager.addShipment(new Shipment("Large Crate", 150.0, 50.0, "Manchester", "Standard"));
-//        manager.addShipment(new Shipment("Glass Vase", 2.5, 100.0, "Bristol", "Fragile"));
-//
+        // Sample Data Entry
+        manager.addShipment(new Shipment("Medical Kit", 5.0, 200.0, "London", "Express"));
+        manager.addShipment(new Shipment("Large Crate", 150.0, 50.0, "Manchester", "Standard"));
+        manager.addShipment(new Shipment("Glass Vase", 2.5, 100.0, "Bristol", "Fragile"));
+
 //        // Dashboard Output
 //        System.out.println("\n--- ATLAS LOGISTICS DASHBOARD ---");
 //        System.out.printf("Total Shipments: %d%n", manager.getMasterShipmentList().size());

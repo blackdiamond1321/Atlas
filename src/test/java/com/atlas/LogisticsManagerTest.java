@@ -50,14 +50,14 @@ public class LogisticsManagerTest {
         assertEquals(38.0, manager.calculateSingleCost(s), 0.001);
     }
 
-//    // --- CATEGORY 2: JAVA STREAMS & ANALYTICS (MLO8) ---
-//
-//    @Test
-//    @Order(4)
-//    void testStreamTotalWeightFiltering() {
-//        // From setup: Alpha(10) + Gamma(2) = 12
-//        assertEquals(12.0, manager.getTotalWeightForDestination("London"), 0.001);
-//    }
+    // --- CATEGORY 2: JAVA STREAMS & ANALYTICS (MLO8) ---
+
+    @Test
+    @Order(4)
+    void testStreamTotalWeightFiltering() {
+        // From setup: Alpha(10) + Gamma(2) = 12
+        assertEquals(12.0, manager.getTotalWeightForDestination("London"), 0.001);
+    }
 //
 //    @Test
 //    @Order(5)
