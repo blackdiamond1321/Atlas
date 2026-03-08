@@ -4,6 +4,9 @@ import com.atlas.core.LogisticsManager;
 import com.atlas.models.Shipment;
 import lombok.extern.java.Log;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 @Log
 public class Main {
     static void main(String[] args) {
@@ -31,12 +34,20 @@ public class Main {
         // Test GitHub actions connection
 
         // Invoice Output
-        System.out.println("\n--- INVOICES ---");
-        System.out.println("-".repeat(102));
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         int[] counter = {1};
+
+        System.out.println("\n--- INVOICES ---");
+        System.out.println("-".repeat(128));
         manager.generateInvoices().forEach(i -> {
-            System.out.printf("| Invoice: #%-3d | Name: %-12s | Type: %-10s | Destination: %-12s | Cost: £%7.2f |%n", counter[0]++, i.getShipmentName(), i.getShipmentType(), i.getDestination(), i.getTotalCost());
-            System.out.println("-".repeat(102));
+            System.out.printf("| Invoice: #%-3d | Name: %-12s | Type: %-10s | Destination: %-12s | Cost: £%.2f | Date: %s |%n",
+                    counter[0]++,
+                    i.getShipmentName(),
+                    i.getShipmentType(),
+                    i.getDestination(),
+                    i.getTotalCost(),
+                    i.getDateTime().format(formatter));
+            System.out.println("-".repeat(128));
         });
 
         log.info("Analysis complete. All billing calculated via Strategy delegates.");
