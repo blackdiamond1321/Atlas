@@ -63,7 +63,7 @@ public class LogisticsManager {
     public double getTotalWeightForDestination(String city) {
         //TODO: use streams to filter the list by destination and sum the weights of the shipments that match the destination.
         double totalWeight = masterShipmentList.stream()
-                .filter(s -> s.getDestination().equals(city))
+                .filter(s -> s.getDestination().equalsIgnoreCase(city))
                 .mapToDouble(s -> s.getWeight())
                 .sum();
         return totalWeight;
